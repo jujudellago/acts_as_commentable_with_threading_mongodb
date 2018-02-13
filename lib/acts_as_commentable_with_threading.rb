@@ -1,12 +1,15 @@
-require 'active_record'
-require 'awesome_nested_set'
-ActiveRecord::Base.class_eval do
-  include CollectiveIdea::Acts::NestedSet
+#require 'active_record'
+require 'mongoid'
+#require 'awesome_nested_set'
+require 'mongoid_nested_set'
+
+Mongoid::Document.class_eval do
+  include Mongoid::Acts::NestedSet
 end
 
 #
-unless ActiveRecord::Base.respond_to?(:acts_as_nested_set)
-  ActiveRecord::Base.send(:include, CollectiveIdea::Acts::NestedSet::Base)
+unless Mongoid::Document.respond_to?(:mongoid_nested_set)
+  Mongoid::Document.send(:include, Mongoid::Acts::NestedSet::Base)
 end
 
 # ActsAsCommentableWithThreading
@@ -63,4 +66,4 @@ module Acts #:nodoc:
   end
 end
 
-ActiveRecord::Base.send(:include, Acts::CommentableWithThreading)
+Mongoid::Document.send(:include, Acts::CommentableWithThreading)

@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gemspec path: '..'
 
 group :development do
-  gem 'activerecord-jdbcsqlite3-adapter', platforms: :jruby
-  gem 'sqlite3', platforms: :ruby
-  gem 'rails', '~> 5.0.0.beta1'
+  gem 'mongoid'
+  gem 'rails', '~> 5.0.5'
 end

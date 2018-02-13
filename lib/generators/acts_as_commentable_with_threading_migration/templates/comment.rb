@@ -1,5 +1,15 @@
-class Comment < ActiveRecord::Base
+class Comment 
+  include Mongoid::Document
   acts_as_nested_set scope: [:commentable_id, :commentable_type]
+
+   field :body, type: String
+   field :subject, type: String
+   field :parent_id, type: BSON::Binary
+   field :lft, type: Integer
+   field :rgt, type: Integer
+   field :updated_at, type: Date
+
+
 
   validates :body, presence: true
   validates :user, presence: true
@@ -25,7 +35,7 @@ class Comment < ActiveRecord::Base
 
   # helper method to check if a comment has children
   def has_children?
-    children.any?
+    children.size > 0
   end
 
   # Helper class method to lookup all comments assigned
@@ -37,8 +47,8 @@ class Comment < ActiveRecord::Base
   # Helper class method to look up all comments for
   # commentable class name and commentable id.
   scope :find_comments_for_commentable, lambda { |type, id|
-    where(commentable_type: type.to_s, commentable_id: id)
-      .order('created_at DESC')
+    where(commentable_type: type.to_s,
+          commentable_id: id).order('created_at DESC')
   }
 
   # Helper class method to look up a commentable object

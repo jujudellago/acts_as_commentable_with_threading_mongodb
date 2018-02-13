@@ -8,12 +8,29 @@ Allows for threaded comments to be added to multiple and different models.
 Drop-in compatible for acts_as_commentable (however requiring a database
 schema change)
 
+Important
+------------
+This fork is in a very experimental state, it works well on one of my projects, but I didn't have time yet to clean things up. If you are interrested, just drop me a line, that might motivate me.
+
+The tests are not adjusted to the mongoid branch yet, and the gems dependencies are disabled because I was lost in a loophole of ActiveModel, Mongoid and Rails incompatibilies 
+
+
+
+To work with Mongoid 6 and rails 5, you will need my experimental fork of Mongoid Nested Set
+[Mongoid Nested Set]: https://github.com/jujudellago/mongoid_nested_set
+
+
+
+
+
+
 Requirements
 ------------
-The 2.x version of this gem is for Rails 4 and later versions only.  For the Rails 3.x compatible version of this gem, please use version 1.2.0.
+The 2.x version of this gem is for Rails 5 and later versions only.  
 
 This gem depends on CollectiveIdea's Awesome Nested Set gem. It is installed if
 not already present when you install this gem.
+
 
 You can find the gem on GitHub at [collectiveidea/awesome_nested_set]
 

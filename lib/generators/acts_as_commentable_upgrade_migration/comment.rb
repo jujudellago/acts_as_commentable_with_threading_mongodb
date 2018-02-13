@@ -1,5 +1,15 @@
-class Comment < ActiveRecord::Base
+class Comment 
+  include Mongoid::Document
   acts_as_nested_set scope: [:commentable_id, :commentable_type]
+
+   field :body, type: String
+   field :subject, type: String
+   field :parent_id, type: BSON::Binary
+   field :lft, type: Integer
+   field :rgt, type: Integer
+   field :updated_at, type: Date
+
+
 
   validates :body, presence: true
   validates :user, presence: true
