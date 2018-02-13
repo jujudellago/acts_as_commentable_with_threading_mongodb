@@ -40,7 +40,7 @@ Install
 -------
 In your Gemfile, add:
 
-    gem 'acts_as_commentable_with_threading'
+    gem 'acts_as_commentable_with_threading', :github=>"jujudellago/acts_as_commentable_with_threading"
 
 and run `bundle install`.
 
@@ -50,7 +50,7 @@ Migrations
 
         rails generate acts_as_commentable_with_threading_migration
 
-    This will generate the migration script necessary for the table
+    This will create the comment model with mongoid fields  (the name mentions migrations but there are obviously none)
 
 * To upgrade to acts_as_commentable_with_threading from the
   old acts_as_commentable:
@@ -62,6 +62,7 @@ Migrations
 
 If the generators fail, you can just as easily create the migrations by hand.
 See the templates in the generators under [`lib/generators`].
+(just get the comment.rb model in there)
 
 [`lib/generators`]: https://github.com/elight/acts_as_commentable_with_threading/tree/master/lib/generators
 
