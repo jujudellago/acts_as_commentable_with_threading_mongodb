@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = 'acts_as_commentable_with_threading'
-  s.version  = '2.0.1'
+  s.version  = '2.0.2'
   s.date     = '2018-02-09'
   s.summary  = 'Polymorphic comments Rails gem - Rails 5 & Mongoid'
   s.email    = 'evan@tripledogdare.net'

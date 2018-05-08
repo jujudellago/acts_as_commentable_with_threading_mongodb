@@ -44,6 +44,12 @@ module Acts #:nodoc:
         Comment.where(user_id: user.id, commentable_type: commentable)
           .order('created_at DESC')
       end
+      
+      def count_comments_by_user(user)
+         commentable = base_class.name.to_s
+          Comment.where(user_id: user.id, commentable_type: commentable).count
+      end
+      
     end
 
     module LocalInstanceMethods
